@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Loading Product</title>
+    <link rel="stylesheet" href="../css/bootstrap.min.css" />
+    <style>
+      html {
+        scroll-behavior: smooth;
+      }
+    </style>
+  </head>
+  <body style="overflow-x: hidden">
+    <script src="../js/jquery.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/popper.min.js"></script>
+    <script>
+      function getUrlParameter(sParam) {
+        var sPageURL = window.location.search.substring(1);
+        var sURLVariables = sPageURL.split("&");
+        for (var i = 0; i < sURLVariables.length; i++) {
+          var sParameterName = sURLVariables[i].split("=");
+          if (sParameterName[0] == sParam) {
+            return sParameterName[1];
+          }
+        }
+      }
+
+      $.getJSON("../data/product.json", (data) => {
+        var page = false;
+        var product;
+        $.each(data, (i, data) => {
+          if (data.slug == getUrlParameter("name") && data.status == true) {
+            page = true;
+            product = data;
+          }
+        });
+        if (page == false) {
+          $("title").html("Page Not Found");
+          $("head").append('<link rel="stylesheet" href="../css/error.css" />');
+          $("body").append(`
+          <div class="container" id="error">
+            <h2>Oops! Page Not Found .</h2>
+            <h1>404</h1>
+            <p>we can't find the page you're looking for .</p>
+            <a href="/">Go Back Home</a>
+          </div>`);
+        } else {
+          $("title").html(product.name);
+          var input = "";
+          $.each(product.userInput.input, (i, data) => {
+            let name = data.name.toLowerCase().replace(" ", "-");
+            input += `
+            <input type="${data.type}" class="data form-control mx-2 shadow-none text-center border-dark text-dark" name="${name}" id="" placeholder="${data.placeholder}" style="background-color: pink"/>
+            `;
+          });
+          let items = "";
+          $.each(product.item, (i, item) => {
+            items += `
+            <div class="col p-2 mx-2 my-2 item border rounded text-center" style="user-select: none; cursor: pointer" onclick="buy('${product.name}','${item.quantity} ${item.name}', ${item.price})">
+              <img src="../img/${item.icon}" alt="" width="40px"S/>
+              <p>${item.quantity} ${item.name}</p>
+            </div>`;
+          });
+          $("body").append(
+            `
+            <div class="row pt-lg-3" id="order">
+              <div class="col-12 col-lg-4 mx-auto">
+                <img src="../img/${product.banner}" alt="${product.name}" width="100%" />
+                <h1>${product.name}</h1>
+                <p class="px-2">
+                  ${product.info}
+                </p>
+              </div>
+              <div class="col-11 col-lg-7 mx-auto mb-3">
+                ${
+                  product.userInput == false
+                    ? ""
+                    : `
+                    <div class="items px-2 py-2 mb-3 text-center" style="background-color: pink; border-radius: 8px" id="input">
+                      <h3>${product.userInput.title}</h3>
+                      <div class="d-flex info">
+                        ${input}
+                      </div>
+                      <small class="text-muted">${product.userInput.note}</small>
+                    </div>`
+                }
+                <div class="items px-2 py-2" style="background-color: pink; border-radius: 8px">
+                  <h3>Pilih Item</h3>
+                  <div class="row mx-auto style="width:100%">
+                    ${items}
+                  </div>
+                </div>
+              </div>
+            </div>
+            `
+          );
+        }
+      });
+
+      function capital(str) {
+        let splitstr = str.toLowerCase().split(" ");
+        for (let i = 0; i < splitstr.length; i++) {
+          splitstr[i] = splitstr[i].charAt(0).toUpperCase() + splitstr[i].substring(1);
+        }
+        return splitstr.join(" ");
+      }
+
+      function formatRp(num) {
+        (number_string = num.toString()), (sisa = number_string.length % 3), (rupiah = number_string.substr(0, sisa)), (ribuan = number_string.substr(sisa).match(/\d{3}/g));
+        if (ribuan) {
+          separator = sisa ? "." : "";
+          rupiah += separator + ribuan.join(".");
+        }
+        return rupiah;
+      }
+
+      function buy(name, product, price) {
+        let input = $(".data");
+        if (input.length !== 0) {
+          let userData = [];
+          let show;
+          $.each(input, (i, data) => {
+            if (data.value.length == 0) {
+              window.location.href = "#input";
+              data.classList.add("is-invalid");
+            } else {
+              data.classList.remove("is-invalid");
+              userData.push({
+                name: data.name,
+                value: data.value,
+              });
+            }
+          });
+          if (userData.length == input.length) {
+            buyConfirm(name, product, `Rp${formatRp(price)}`, userData);
+          }
+        } else {
+          buyConfirm(name, product, `Rp${formatRp(price)}`, false);
+        }
+      }
+
+      function buyConfirm(name, item, harga, data) {
+        let info = "";
+        if (data !== false) {
+          $.each(data, (i, data) => {
+            data.name = data.name.replace("-", " ");
+            info += `
+            <li class="list-group-item d-flex justify-content-between"><span>${capital(data.name)}</span><span>${data.value}</span></li>
+            `;
+          });
+        }
+        data = JSON.stringify(data);
+        $("body").append(
+          `
+            <div class="modal fade" id="modalId" tabindex="-1"  role="dialog" aria-labelledby="modalTitleId" aria-hidden="true">
+              <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="modalTitleId">Konfirmasi Pembelian</h5>
+                  </div>
+                  <div class="modal-body">
+                      <ul class="list-group">
+                        ${data == false ? "" : info}
+                        <li class="list-group-item d-flex justify-content-between"><span>Item</span><span>${item}</span></li>
+                        <li class="list-group-item d-flex justify-content-between fw-bold"><span>Harga</span><span>${harga}</span></li>
+                      </ul>
+                  </div>
+                  <div class="modal-footer" style="border:none">
+                    <button type="button" class="btn text-light" data-bs-dismiss="modal" style="background-color: lightblue; box-shadow: lightblue -1px 1px 2px" onclick="delModal(400)">Close</button>
+                    <button type="button" class="btn text-light" style="background-color: pink; box-shadow: pink -1px 1px 2px " onclick='directWa("${name}",${data})'>Konfirmasi</button>
+                  </div>
+                </div>
+              </div>
+            </div>`
+        );
+        let myModal = new bootstrap.Modal(document.getElementById("modalId"));
+        myModal.show();
+      }
+
+      function delModal(time) {
+        setTimeout(() => {
+          $(".modal").remove();
+        }, time);
+      }
+
+      function directWa(name, info) {
+        let userInfo = "";
+        $.each(info, (i, data) => {
+          data.name = capital(data.name);
+          userInfo += `*${data.name.replace(" ", "%20")}%20:*%20${data.value.replace(" ", "%20")}%0A`;
+        });
+        name = name.replace(" ", "%20");
+        let phone = 6285714608649;
+        let note = "pastikan informasi telah diisi dengan benar!";
+        note = note.split(" ");
+        newNote = "";
+        $.each(note, (i, data) => {
+          newNote += `${data}%20`;
+        });
+        let url = `https://api.whatsapp.com/send?phone=${phone}&text=*Format%20Order%20${name}*%0A${userInfo}*Note%20:*%20${newNote}`;
+        window.location.href = "";
+        let win = window.open(url, "_blank");
+        win.focus();
+      }
+    </script>
+  </body>
+</html>

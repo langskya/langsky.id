@@ -1,0 +1,397 @@
+[
+  {
+    "status": true,
+    "name": "Free Fire",
+    "slug": "free-fire",
+    "info": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptatum quaerat expedita illo cupiditate non. Inventore, reprehenderit! Quidem ipsum totam voluptatibus similique voluptate,tenetur nostrum quia ab commodi esse natus qui quis error sed voluptatum quam numquam veniam in animi sunt.",
+    "userInput": {
+      "title": "Masukkan Player ID",
+      "input": [
+        {
+          "name": "Player ID",
+          "type": "tel",
+          "placeholder": "Masukkan Player ID"
+        }
+      ],
+      "note": "Untuk menemukan ID Anda, klik pada ikon karakter. User ID tercantum di bawah nama karakter Anda. Contoh: '5363266446'."
+    },
+    "image": "freefire.jpg",
+    "banner": "freefire-banner.jpg",
+    "item": [
+      {
+        "name": "Diamonds",
+        "icon": "ffdm.png",
+        "quantity": 50,
+        "price": 6720
+      },
+      {
+        "name": "Diamonds",
+        "icon": "ffdm.png",
+        "quantity": 70,
+        "price": 9240
+      },
+      {
+        "name": "Diamonds",
+        "icon": "ffdm.png",
+        "quantity": 100,
+        "price": 13440
+      },
+      {
+        "name": "Diamonds",
+        "icon": "ffdm.png",
+        "quantity": 140,
+        "price": 18480
+      },
+      {
+        "name": "Diamonds",
+        "icon": "ffdm.png",
+        "quantity": 210,
+        "price": 27270
+      },
+      {
+        "name": "Diamonds",
+        "icon": "ffdm.png",
+        "quantity": 355,
+        "price": 46200
+      },
+      {
+        "name": "Diamonds",
+        "icon": "ffdm.png",
+        "quantity": 425,
+        "price": 55440
+      },
+      {
+        "name": "Diamonds",
+        "icon": "ffdm.png",
+        "quantity": 500,
+        "price": 64528
+      },
+      {
+        "name": "Diamonds",
+        "icon": "ffdm.png",
+        "quantity": 720,
+        "price": 92400
+      },
+      {
+        "name": "Diamonds",
+        "icon": "ffdm.png",
+        "quantity": 1000,
+        "price": 129360
+      },
+      {
+        "name": "Diamonds",
+        "icon": "ffdm.png",
+        "quantity": 1440,
+        "price": 184800
+      },
+      {
+        "name": "Diamonds",
+        "icon": "ffdm.png",
+        "quantity": 2000,
+        "price": 252000
+      },
+      {
+        "name": "Diamonds",
+        "icon": "ffdm.png",
+        "quantity": 2720,
+        "price": 344400
+      },
+      {
+        "name": "Diamonds",
+        "icon": "ffdm.png",
+        "quantity": 3440,
+        "price": 463800
+      },
+      {
+        "name": "Diamonds",
+        "icon": "ffdm.png",
+        "quantity": 4000,
+        "price": 504000
+      },
+      {
+        "name": "Membership",
+        "quantity": "Weekly",
+        "price": 28000
+      },
+      {
+        "name": "Membership",
+        "quantity": "Monthly",
+        "price": 83000
+      }
+    ]
+  },
+  {
+    "status": true,
+    "name": "Mobile Legends",
+    "slug": "mobile-legends",
+    "info": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptatum quaerat expedita illo cupiditate non. Inventore, reprehenderit! Quidem ipsum totam voluptatibus similique voluptate,tenetur nostrum quia ab commodi esse natus qui quis error sed voluptatum quam numquam veniam in animi sunt.",
+    "userInput": {
+      "title": "Masukkan User ID",
+      "input": [
+        {
+          "name": "User ID",
+          "type": "tel",
+          "placeholder": "Masukkan User ID"
+        },
+        {
+          "name": "Zone ID",
+          "type": "tel",
+          "placeholder": "(  Zone ID  )"
+        }
+      ],
+      "note": "Untuk mengetahui User ID Anda, silakan klik menu profile dibagian kiri atas pada menu utama game. User ID akan terlihat dibagian bawah Nama Karakter Game Anda. Silakan masukkan User ID Anda untuk menyelesaikan transaksi. Contoh : 12345678(1234)."
+    },
+    "image": "mobilelegends.jpg",
+    "banner": "mobilelegends-banner.jpg",
+    "item": [
+      {
+        "name": "Diamonds",
+        "icon": "mldm1.png",
+        "quantity": 14,
+        "price": 4180
+      },
+      {
+        "name": "Diamonds",
+        "icon": "mldm1.png",
+        "quantity": 42,
+        "price": 10540
+      },
+      {
+        "name": "Diamonds",
+        "icon": "mldm2.png",
+        "quantity": 70,
+        "price": 16900
+      },
+      {
+        "name": "Diamonds",
+        "icon": "mldm2.png",
+        "quantity": 86,
+        "price": 19520
+      },
+      {
+        "name": "Diamonds",
+        "icon": "mldm2.png",
+        "quantity": 140,
+        "price": 32800
+      },
+      {
+        "name": "Diamonds",
+        "icon": "mldm3.png",
+        "quantity": 172,
+        "price": 38735
+      },
+      {
+        "name": "Diamonds",
+        "icon": "mldm3.png",
+        "quantity": 257,
+        "price": 58225
+      },
+      {
+        "name": "Diamonds",
+        "icon": "mldm3.png",
+        "quantity": 284,
+        "price": 64600
+      },
+      {
+        "name": "Diamonds",
+        "icon": "mldm3.png",
+        "quantity": 344,
+        "price": 77470
+      },
+      {
+        "name": "Diamonds",
+        "icon": "mldm3.png",
+        "quantity": 355,
+        "price": 80500
+      },
+      {
+        "name": "Diamonds",
+        "icon": "mldm3.png",
+        "quantity": 429,
+        "price": 96990
+      },
+      {
+        "name": "Diamonds",
+        "icon": "mldm4.png",
+        "quantity": 514,
+        "price": 116510
+      },
+      {
+        "name": "Diamonds",
+        "icon": "mldm4.png",
+        "quantity": 600,
+        "price": 136030
+      },
+      {
+        "name": "Diamonds",
+        "icon": "mldm4.png",
+        "quantity": 706,
+        "price": 155550
+      },
+      {
+        "name": "Diamonds",
+        "icon": "mldm4.png",
+        "quantity": 715,
+        "price": 160000
+      },
+      {
+        "name": "Diamonds",
+        "icon": "mldm4.png",
+        "quantity": 878,
+        "price": 194285
+      },
+      {
+        "name": "Diamonds",
+        "icon": "mldm4.png",
+        "quantity": 1050,
+        "price": 233020
+      },
+      {
+        "name": "Diamonds",
+        "icon": "mldm4.png",
+        "quantity": 1412,
+        "price": 311100
+      },
+      {
+        "name": "Diamonds",
+        "icon": "mldm4.png",
+        "quantity": 1446,
+        "price": 319000
+      },
+      {
+        "name": "Diamonds",
+        "icon": "mldm5.png",
+        "quantity": 2195,
+        "price": 3073
+      },
+      {
+        "name": "Diamonds",
+        "icon": "mldm5.png",
+        "quantity": 2976,
+        "price": 637000
+      },
+      {
+        "name": "Diamonds",
+        "icon": "mldm5.png",
+        "quantity": 3073,
+        "price": 661545
+      },
+      {
+        "name": "Diamonds",
+        "icon": "mldm5.png",
+        "quantity": 3688,
+        "price": 779580
+      },
+      {
+        "name": "Diamonds",
+        "icon": "mldm5.png",
+        "quantity": 4394,
+        "price": 935130
+      },
+      {
+        "name": "Diamonds",
+        "icon": "mldm5.png",
+        "quantity": 4422,
+        "price": 955000
+      },
+      {
+        "name": "Diamonds",
+        "icon": "mldm6.png",
+        "quantity": 5532,
+        "price": 1169980
+      },
+      {
+        "name": "Diamonds",
+        "icon": "mldm6.png",
+        "quantity": 6238,
+        "price": 1325530
+      },
+      {
+        "name": "Diamonds",
+        "icon": "mldm6.png",
+        "quantity": 7502,
+        "price": 1708000
+      }
+    ]
+  },
+  {
+    "status": true,
+    "name": "Garena Shells",
+    "slug": "garena-shells",
+    "info": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptatum quaerat expedita illo cupiditate non. Inventore, reprehenderit! Quidem ipsum totam voluptatibus similique voluptate,tenetur nostrum quia ab commodi esse natus qui quis error sed voluptatum quam numquam veniam in animi sunt.",
+    "userInput": false,
+    "image": "garenashells.jpg",
+    "banner": "garenashells-banner.jpg",
+    "item": [
+      {
+        "name": "Garena Shells",
+        "icon": "gs.png",
+        "quantity": 33,
+        "price": 9500
+      },
+      {
+        "name": "Garena Shells",
+        "icon": "gs.png",
+        "quantity": 165,
+        "price": 45000
+      },
+      {
+        "name": "Garena Shells",
+        "icon": "gs.png",
+        "quantity": 330,
+        "price": 88500
+      }
+    ]
+  },
+  {
+    "status": false,
+    "name": "PUBG Mobile",
+    "slug": "pubg-mobile",
+    "info": "",
+    "userInput": false,
+    "image": "pubgmobile.jpg",
+    "banner": "",
+    "item": [
+      {
+        "name": "",
+        "icon": "",
+        "quantity": 0,
+        "price": 0
+      }
+    ]
+  },
+  {
+    "status": false,
+    "name": "AOV",
+    "slug": "aov",
+    "info": "",
+    "userInput": false,
+    "image": "aov.jpg",
+    "banner": "",
+    "item": [
+      {
+        "name": "",
+        "icon": "",
+        "quantity": 0,
+        "price": 0
+      }
+    ]
+  },
+  {
+    "status": false,
+    "name": "Sausage Man",
+    "slug": "sausage-man",
+    "info": "",
+    "userInput": false,
+    "image": "sausageman.jpg",
+    "banner": "",
+    "item": [
+      {
+        "name": "",
+        "icon": "",
+        "quantity": 0,
+        "price": 0
+      }
+    ]
+  }
+]
