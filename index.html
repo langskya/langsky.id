@@ -1,59 +1,111 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="img/icon.jpg">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
     <title>List Proudct</title>
-  </head>
-  <body>
+</head>
+
+<body>
+    <header>
+        <h1>DES.ID</h1>
+        <!-- <a href="/" class="title">des.id</a>
+        <input type="search" class="input-search" placeholder="Cari sesuatu disini...">
+        <button type="submit" class="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#prodduk">Produk</a></li>
+            </ul>
+        </nav> -->
+    </header>
+
+    <div id="home" class="slider">
+        <!-- <h4>info yang akan datang</h4> -->
+        <input type="radio" name="choose" id="" class="choose_1">
+        <input type="radio" name="choose" id="" class="choose_2">
+        <div class="slides">
+            <img src="img/slide-1.jpg" alt="" class="slide s1">
+            <img src="img/slide-2.jpg" alt="" class="slide">
+        </div>
+    </div>
+    <h1 class="judul-p" style="margin-left: 25px;">POPULER</h1>
     <div class="row mx-auto p-3" id="product"></div>
+    <h1 class="judul" style="margin-left: 25px;">Voucher</h1>
+    <div class="row mx-auto p-3" id="voucher"></div>
+
+
     <script src="js/jquery.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/popper.min.js"></script>
     <script>
-      function productUndefined() {
-        $("body").append(`
-            <div class="modal fade" id="modalId" tabindex="-1"  role="dialog" aria-labelledby="modalTitleId" aria-hidden="true">
-              <div class="modal-dialog modal-dialog-centered" role="document">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <h5 class="modal-title" id="modalTitleId">Modal title</h5>
-                  </div>
-                  <div class="modal-body">
-                    <div class="container-fluid">Add rows here</div>
-                  </div>
-                  <div class="modal-footer">
-                    <button type="button" class="btn text-light" data-bs-dismiss="modal" style="background-color: pink; box-shadow: pink -1px 1px 2px" onclick="delModal()">Close</button>
-                  </div>
-                </div>
-              </div>
-            </div>`);
-        let myModal = new bootstrap.Modal(document.getElementById("modalId"));
-        myModal.show();
-      }
+        function errorPage() {
+            $("title").html("Page Not Found");
 
-      function delModal() {
-        setTimeout(() => {
-          $(".modal").remove();
-        }, 400);
-      }
+            $("head").append('<link rel="stylesheet" href="css/error.css" />');
 
-      $(document).ready(function () {
-        $.getJSON("data/product.json", (data) => {
-          let direct;
-          $.each(data, (i, data) => {
-            direct = data.status == true ? "window.location.href='product/?name=" + data.slug + "'" : "productUndefined()";
-            $("#product").append(
-              `<div class="col-6 col-md-4 col-lg-2 mb-3" style="cursor: pointer" onclick="${direct}">
+            $("body").html(`
+          <div class="container" id="error">
+            <h2>Oops! Produk Blm Tersedia .</h2>
+            <h1>404</h1>
+            <p>SILAKAN PILIH PRODUK LAIN YA</p>
+            <a href="http://127.0.0.1:5500/index.html">Go Back Home</a>
+          </div>`);
+        }
+
+        function productUndefined() {
+            errorPage();
+        }
+
+        $(document).ready(function() {
+            $.getJSON("data/product.json", (data) => {
+                let direct;
+                $.each(data, (i, data) => {
+                    direct = data.status == true ? "window.location.href='product/index.html?name=" + data.slug + "'" : "productUndefined()";
+                    $("#product").append(
+                        `<div class="col-6 col-md-4 col-lg-2 mb-3" style="cursor: pointer" onclick="${direct}">
                 <img src="img/${data.image}" alt="${data.name}" style="width: 100%; border-radius: 8px 8px 0 0" />
-                <div class="title fs-5 text-center p-1" style="font-weight: 50%; background-color: pink; border-radius: 0 0 8px 8px">${data.name}</div>
+                <div class="title fs-5 text-center p-1" style="font-weight: 50%; background-color: #87cefa; border-radius: 0 0 8px 8px">${data.name}</div>
               </div>`
-            );
-          });
+                    );
+                });
+            });
         });
-      });
+        $(document).ready(function() {
+            $.getJSON("data/voucher.json", (data) => {
+                let direct;
+                $.each(data, (i, data) => {
+                    direct = data.status == true ? "window.location.href='voucher/index.html?name=" + data.slug + "'" : "productUndefined()";
+                    $("#voucher").append(
+                        `<div class="col-6 col-md-4 col-lg-2 mb-3" style="cursor: pointer" onclick="${direct}">
+                <img src="img/${data.image}" alt="${data.name}" style="width: 100%; border-radius: 8px 8px 0 0" />
+                <div class="title fs-5 text-center p-1" style="font-weight: 50%; background-color: #87cefa; border-radius: 0 0 8px 8px">${data.name}</div>
+              </div>`
+                    );
+                });
+            });
+        });
+        $(document).ready(function() {
+            $.getJSON("data/pulsa.json", (data) => {
+                let direct;
+                $.each(data, (i, data) => {
+                    direct = data.status == true ? "window.location.href='pulsa/?name=" + data.slug + "'" : "productUndefined()";
+                    $("#pulsa").append(
+                        `<div class="col-6 col-md-4 col-lg-2 mb-3" style="cursor: pointer" onclick="${direct}">
+                <img src="img/${data.image}" alt="${data.name}" style="width: 100%; border-radius: 8px 8px 0 0" />
+                <div class="title fs-5 text-center p-1" style="font-weight: 50%; background-color: #87cefa; border-radius: 0 0 8px 8px">${data.name}</div>
+              </div>`
+                    );
+                });
+            });
+        });
     </script>
-  </body>
+</body>
+
 </html>

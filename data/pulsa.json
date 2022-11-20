@@ -1,0 +1,89 @@
+// [{
+//         "status": true,
+//         "name": "Indosat",
+//         "slug": "pulsa reguler",
+//         "info": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptatum quaerat expedita illo cupiditate non. Inventore, reprehenderit! Quidem ipsum totam voluptatibus similique voluptate,tenetur nostrum quia ab commodi esse natus qui quis error sed voluptatum quam numquam veniam in animi sunt.",
+//         "userInput": false,
+//         "image": "garenashells.jpg",
+//         "banner": "garenashells-banner.jpg",
+//         "item": [{
+//                 "name": "Garena Shells",
+//                 "icon": "gs.png",
+//                 "quantity": 33,
+//                 "price": 9500
+//             },
+//             {
+//                 "name": "Garena Shells",
+//                 "icon": "gs.png",
+//                 "quantity": 165,
+//                 "price": 45000
+//             },
+//             {
+//                 "name": "Garena Shells",
+//                 "icon": "gs.png",
+//                 "quantity": 330,
+//                 "price": 88500
+//             }
+//         ]
+//     },
+//     {
+//         "status": false,
+//         "name": "Google Play ID",
+//         "slug": "google-play",
+//         "info": "",
+//         "userInput": false,
+//         "image": "ps.webp",
+//         "banner": "",
+//         "item": [{
+//             "name": "",
+//             "icon": "",
+//             "quantity": 0,
+//             "price": 0
+//         }]
+//     },
+//     {
+//         "status": false,
+//         "name": "Unipin Point ID",
+//         "slug": "unipin",
+//         "info": "",
+//         "userInput": false,
+//         "image": "unipin.jpg",
+//         "banner": "",
+//         "item": [{
+//             "name": "",
+//             "icon": "",
+//             "quantity": 0,
+//             "price": 0
+//         }]
+//     },
+//     {
+//         "status": false,
+//         "name": "RazerGold ID",
+//         "slug": "razergold",
+//         "info": "",
+//         "userInput": false,
+//         "image": "razer-gold.png",
+//         "banner": "",
+//         "item": [{
+//             "name": "",
+//             "icon": "",
+//             "quantity": 0,
+//             "price": 0
+//         }]
+//     },
+//     {
+//         "status": false,
+//         "name": "Steam One Coin",
+//         "slug": "smile-one",
+//         "info": "",
+//         "userInput": false,
+//         "image": "smile.webp",
+//         "banner": "",
+//         "item": [{
+//             "name": "",
+//             "icon": "",
+//             "quantity": 0,
+//             "price": 0
+//         }]
+//     }
+// ]

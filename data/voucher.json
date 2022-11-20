@@ -1,0 +1,89 @@
+[{
+        "status": true,
+        "name": "Garena Shells ID",
+        "slug": "garena-shells",
+        "info": "𝚃𝚊𝚗𝚙𝚊 𝚛𝚎𝚐𝚒𝚜𝚝𝚛𝚊𝚜𝚒 𝚊𝚝𝚊𝚞 𝚕𝚘𝚐𝚒𝚗, 𝙺𝚊𝚖𝚞 𝚋𝚒𝚜𝚊 𝚕𝚊𝚗𝚐𝚜𝚞𝚗𝚐 𝚝𝚘𝚙 𝚞𝚙 𝙳𝚒𝚊𝚖𝚘𝚗𝚍 𝙵𝚛𝚎𝚎 𝙵𝚒𝚛𝚎 𝚑𝚊𝚛𝚒 𝚒𝚗𝚒 𝚍𝚎𝚗𝚐𝚊𝚗 𝚖𝚞𝚍𝚊𝚑 𝚍𝚒 𝙻𝚊𝚗𝚐𝚜𝚔𝚢𝚊.𝚒𝚍! <br> 𝓒𝓪𝓻𝓪 𝓞𝓻𝓭𝓮𝓻 : <br> 1. 𝓟𝓲𝓵𝓲𝓱 𝓲𝓽𝓮𝓶 𝔂𝓪𝓷𝓰 𝓪𝓷𝓭𝓪 𝓹𝓲𝓵𝓲𝓱 <br> 2. 𝓴𝓵𝓲𝓬𝓴 𝓴𝓸𝓷𝓯𝓲𝓻𝓶𝓪𝓼𝓲 𝓭𝓪𝓷 𝓪𝓷𝓭𝓪 𝓪𝓴𝓪𝓷 𝓭𝓲 𝓪𝓻𝓪𝓱𝓴𝓪𝓷 𝓴𝓮 𝔀𝓱𝓪𝓽𝓼𝓪𝓹𝓹 𝓴𝓪𝓶𝓲 𝓾𝓷𝓽𝓾𝓴 𝓴𝓪𝓶𝓲 𝓹𝓻𝓸𝓼𝓮𝓼 𝓸𝓻𝓭𝓮𝓻𝓪𝓷 𝓪𝓷𝓭𝓪 <br> 𝐍𝐎𝐓𝐄 : BILA UDAH TERIKIRIM KE WA YANG TERTUJU TAPI ANDA BLM TF KAMI TIDAK AKAN MEMPROSES NYA <br> 𝐈𝐍𝐅𝐎 : WEBSITE INI BELUM OTOMATIS!!",
+        "userInput": false,
+        "image": "garenashells.jpg",
+        "banner": "garenashells-banner.jpg",
+        "item": [{
+                "name": "Garena Shells",
+                "icon": "gs.png",
+                "quantity": 33,
+                "price": 9500
+            },
+            {
+                "name": "Garena Shells",
+                "icon": "gs.png",
+                "quantity": 165,
+                "price": 45000
+            },
+            {
+                "name": "Garena Shells",
+                "icon": "gs.png",
+                "quantity": 330,
+                "price": 88500
+            }
+        ]
+    },
+    {
+        "status": false,
+        "name": "Google Play ID",
+        "slug": "google-play",
+        "info": "",
+        "userInput": false,
+        "image": "ps.webp",
+        "banner": "",
+        "item": [{
+            "name": "",
+            "icon": "",
+            "quantity": 0,
+            "price": 0
+        }]
+    },
+    {
+        "status": false,
+        "name": "Unipin Point ID",
+        "slug": "unipin",
+        "info": "",
+        "userInput": false,
+        "image": "unipin.jpg",
+        "banner": "",
+        "item": [{
+            "name": "",
+            "icon": "",
+            "quantity": 0,
+            "price": 0
+        }]
+    },
+    {
+        "status": false,
+        "name": "RazerGold ID",
+        "slug": "razergold",
+        "info": "",
+        "userInput": false,
+        "image": "razer-gold.png",
+        "banner": "",
+        "item": [{
+            "name": "",
+            "icon": "",
+            "quantity": 0,
+            "price": 0
+        }]
+    },
+    {
+        "status": false,
+        "name": "Steam One Coin",
+        "slug": "smile-one",
+        "info": "",
+        "userInput": false,
+        "image": "smile.webp",
+        "banner": "",
+        "item": [{
+            "name": "",
+            "icon": "",
+            "quantity": 0,
+            "price": 0
+        }]
+    }
+]

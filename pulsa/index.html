@@ -33,7 +33,7 @@
             }
         }
 
-        $.getJSON("../data/product.json", (data) => {
+        $.getJSON("../data/pulsa.json", (data) => {
                     var page = false;
                     var product;
                     $.each(data, (i, data) => {
@@ -58,7 +58,7 @@
                         $.each(product.userInput.input, (i, data) => {
                             let name = data.name.toLowerCase().replace(" ", "-");
                             input += `
-            <input type="${data.type}" class="data form-control mx-2 shadow-none text-center border-dark text-dark" name="${name}" id="" placeholder="${data.placeholder}" style="background-color: #87cefa"/>
+            <input type="${data.type}" class="data form-control mx-2 shadow-none text-center border-dark text-dark" name="${name}" id="" placeholder="${data.placeholder}" style="background-color: pink"/>
             `;
                         });
                         let items = "";
@@ -84,7 +84,7 @@
                   product.userInput == false
                     ? ""
                     : `
-                    <div class="items px-2 py-2 mb-3 text-center" style="background-color: #87cefa; border-radius: 8px" id="input">
+                    <div class="items px-2 py-2 mb-3 text-center" style="background-color: pink; border-radius: 8px" id="input">
                       <h3>${product.userInput.title}</h3>
                       <div class="d-flex info">
                         ${input}
@@ -92,7 +92,7 @@
                       <small class="text-muted">${product.userInput.note}</small>
                     </div>`
                 }
-                <div class="items px-2 py-2" style="background-color: #87cefa; border-radius: 8px">
+                <div class="items px-2 py-2" style="background-color: pink; border-radius: 8px">
                   <h3>Pilih Item</h3>
                   <div class="row mx-auto style="width:100%">
                     ${items}

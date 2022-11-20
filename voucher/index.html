@@ -5,7 +5,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Loading Product</title>
+    <title>Loading voucher</title>
     <link rel="stylesheet" href="../css/bootstrap.min.css" />
     <style>
         html {
@@ -33,13 +33,13 @@
             }
         }
 
-        $.getJSON("../data/product.json", (data) => {
+        $.getJSON("../data/voucher.json", (data) => {
                     var page = false;
-                    var product;
+                    var voucher;
                     $.each(data, (i, data) => {
                         if (data.slug == getUrlParameter("name") && data.status == true) {
                             page = true;
-                            product = data;
+                            voucher = data;
                         }
                     });
                     if (page == false) {
@@ -53,18 +53,18 @@
             <a href="/">Go Back Home</a>
           </div>`);
                     } else {
-                        $("title").html(product.name);
+                        $("title").html(voucher.name);
                         var input = "";
-                        $.each(product.userInput.input, (i, data) => {
+                        $.each(voucher.userInput.input, (i, data) => {
                             let name = data.name.toLowerCase().replace(" ", "-");
                             input += `
-            <input type="${data.type}" class="data form-control mx-2 shadow-none text-center border-dark text-dark" name="${name}" id="" placeholder="${data.placeholder}" style="background-color: #87cefa"/>
+            <input type="${data.type}" class="data form-control mx-2 shadow-none text-center border-dark text-dark" name="${name}" id="" placeholder="${data.placeholder}" style="background-color: pink"/>
             `;
                         });
                         let items = "";
-                        $.each(product.item, (i, item) => {
+                        $.each(voucher.item, (i, item) => {
                             items += `
-            <div class="col p-2 mx-2 my-2 item border rounded text-center" style="user-select: none; cursor: pointer" onclick="buy('${product.name}','${item.quantity} ${item.name}', ${item.price})">
+            <div class="col p-2 mx-2 my-2 item border rounded text-center" style="user-select: none; cursor: pointer" onclick="buy('${voucher.name}','${item.quantity} ${item.name}', ${item.price})">
               <img src="../img/${item.icon}" alt="" width="40px"S/>
               <p>${item.quantity} ${item.name}</p>
             </div>`;
@@ -73,23 +73,23 @@
                                 `
             <div class="row pt-lg-3" id="order">
               <div class="col-12 col-lg-4 mx-auto">
-                <img src="../img/${product.banner}" alt="${product.name}" width="100%" />
-                <h1>${product.name}</h1>
+                <img src="../img/${voucher.banner}" alt="${voucher.name}" width="100%" />
+                <h1>${voucher.name}</h1>
                 <p class="px-2">
-                  ${product.info}
+                  ${voucher.info}
                 </p>
               </div>
               <div class="col-11 col-lg-7 mx-auto mb-3">
                 ${
-                  product.userInput == false
+                  voucher.userInput == false
                     ? ""
                     : `
-                    <div class="items px-2 py-2 mb-3 text-center" style="background-color: #87cefa; border-radius: 8px" id="input">
-                      <h3>${product.userInput.title}</h3>
+                    <div class="items px-2 py-2 mb-3 text-center" style="background-color: pink; border-radius: 8px" id="input">
+                      <h3>${voucher.userInput.title}</h3>
                       <div class="d-flex info">
                         ${input}
                       </div>
-                      <small class="text-muted">${product.userInput.note}</small>
+                      <small class="text-muted">${voucher.userInput.note}</small>
                     </div>`
                 }
                 <div class="items px-2 py-2" style="background-color: #87cefa; border-radius: 8px">
