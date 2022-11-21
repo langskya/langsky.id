@@ -11,8 +11,9 @@
         html {
             scroll-behavior: smooth;
         }
+        
         body {
-          overflow-x: hidden;
+            overflow-x: hidden;
         }
     </style>
 </head>
@@ -106,9 +107,7 @@
       });
       
       function capital(str) {
-
         let splitstr = str.toLowerCase().split(" ");
-
         for (let i = 0; i < splitstr.length; i++) {
           splitstr[i] = splitstr[i].charAt(0).toUpperCase() + splitstr[i].substring(1);
         }
@@ -177,7 +176,7 @@
                   </div>
                   <div class="modal-footer" style="border:none">
                     <button type="button" class="btn text-light" data-bs-dismiss="modal" style="background-color: lightblue; box-shadow: lightblue -1px 1px 2px" onclick="delModal(400)">Close</button>
-                    <button type="button" class="btn text-light" style="background-color: pink; box-shadow: pink -1px 1px 2px " onclick='directWa("${name}", ${data}, ${item})'>Konfirmasi</button>
+                    <button type="button" class="btn text-light" style="background-color: pink; box-shadow: pink -1px 1px 2px " onclick='directWa("${name}",${data})'>Konfirmasi</button>
                   </div>
                 </div>
               </div>
@@ -193,14 +192,13 @@
         }, time);
       }
 
-      function directWa(name, info, item) {
+      function directWa(name, info) {
         let userInfo = "";
         $.each(info, (i, data) => {
           data.name = capital(data.name);
-          userInfo += `*${data.name.replace(" ", "%20")}%20:*%20${data.value.replace(" ", "%20")}%0A`;
+          userInfo += `${data.name.replace(" ", "%20")}%20:%20${data.value.replace(" ", "%20")}%0A`;
         });
         name = name.replace(" ", "%20");
-        item = item.replace(" ", "%20");
         let phone = 6285714608649;
         let note = "pastikan informasi telah diisi dengan benar!";
         note = note.split(" ");
@@ -208,8 +206,8 @@
         $.each(note, (i, data) => {
           newNote += `${data}%20`;
         });
-        let url = `https://api.whatsapp.com/send?phone=${phone}&text=*Format%20Order%20${name}*%0A${userInfo}*Order%20:*%20${item}*Note%20:*%20${newNote}`;
-        window.location.href = "";
+        let url = `https://api.whatsapp.com/send?phone=${phone}&text=*Format%20Order%20${name}*%0A${userInfo}*Note%20:*%20${newNote}`;
+        window.location.href = url;
         let win = window.open(url, "_blank");
         win.focus();
       }
