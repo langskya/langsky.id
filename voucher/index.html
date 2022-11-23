@@ -5,7 +5,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Loading voucher</title>
+    <title>Loading Voucher</title>
     <link rel="stylesheet" href="../css/bootstrap.min.css" />
     <style>
         html {
@@ -59,7 +59,7 @@
                         $.each(voucher.userInput.input, (i, data) => {
                             let name = data.name.toLowerCase().replace(" ", "-");
                             input += `
-            <input type="${data.type}" class="data form-control mx-2 shadow-none text-center border-dark text-dark" name="${name}" id="" placeholder="${data.placeholder}" style="background-color: pink"/>
+            <input type="${data.type}" class="data form-control mx-2 shadow-none text-center border-dark text-dark" name="${name}" id="" placeholder="${data.placeholder}" style="background-color: #87cefa"/>
             `;
                         });
                         let items = "";
@@ -85,7 +85,7 @@
                   voucher.userInput == false
                     ? ""
                     : `
-                    <div class="items px-2 py-2 mb-3 text-center" style="background-color: pink; border-radius: 8px" id="input">
+                    <div class="items px-2 py-2 mb-3 text-center" style="background-color: #87cefa; border-radius: 8px" id="input">
                       <h3>${voucher.userInput.title}</h3>
                       <div class="d-flex info">
                         ${input}
@@ -105,6 +105,7 @@
           );
         }
       });
+
       function capital(str) {
         let splitstr = str.toLowerCase().split(" ");
         for (let i = 0; i < splitstr.length; i++) {
@@ -122,7 +123,7 @@
         return rupiah;
       }
 
-      function buy(name, product, price) {
+      function buy(name, voucher, price) {
         let input = $(".data");
         if (input.length !== 0) {
           let userData = [];
@@ -140,10 +141,10 @@
             }
           });
           if (userData.length == input.length) {
-            buyConfirm(name, product, `Rp${formatRp(price)}`, userData);
+            buyConfirm(name, voucher, `Rp${formatRp(price)}`, userData);
           }
         } else {
-          buyConfirm(name, product, `Rp${formatRp(price)}`, false);
+          buyConfirm(name, voucher, `Rp${formatRp(price)}`, false);
         }
       }
 
@@ -157,6 +158,8 @@
             `;
           });
         }
+        var date = new Date();
+        let id = `${date.getFullYear()}${date.getMonth()}${date.getDate()}${date.getHours()}${date.getMinutes()}`;
         data = JSON.stringify(data);
         $("body").append(
           `
@@ -168,6 +171,7 @@
                   </div>
                   <div class="modal-body">
                       <ul class="list-group">
+                        <li class="list-group-item d-flex justify-content-between"><span>Id Transaksi</span><span>${id}</span></li>
                         ${data == false ? "" : info}
                         <li class="list-group-item d-flex justify-content-between"><span>Item</span><span>${item}</span></li>
                         <li class="list-group-item d-flex justify-content-between fw-bold"><span>Harga</span><span>${harga}</span></li>
@@ -175,7 +179,7 @@
                   </div>
                   <div class="modal-footer" style="border:none">
                     <button type="button" class="btn text-light" data-bs-dismiss="modal" style="background-color: lightblue; box-shadow: lightblue -1px 1px 2px" onclick="delModal(400)">Close</button>
-                    <button type="button" class="btn text-light" style="background-color: pink; box-shadow: pink -1px 1px 2px " onclick='directWa("${name}",${data})'>Konfirmasi</button>
+                    <button type="button" class="btn text-light" style="background-color: pink; box-shadow: pink -1px 1px 2px " onclick='directWa(${id}, "${name}" ,${data}, "${item}")'>Konfirmasi</button>
                   </div>
                 </div>
               </div>
@@ -191,7 +195,7 @@
         }, time);
       }
 
-      function directWa(name, info) {
+      function directWa(id, name, info, item) {
         let userInfo = "";
         $.each(info, (i, data) => {
           data.name = capital(data.name);
@@ -205,10 +209,8 @@
         $.each(note, (i, data) => {
           newNote += `${data}%20`;
         });
-        let url = `https://api.whatsapp.com/send?phone=${phone}&text=*Format%20Order%20${name}*%0A${userInfo}*Note%20:*%20${newNote}`;
+        let url = `https://api.whatsapp.com/send?phone=${phone}&text=*Format%20Order%20${name}*%0A*ID%20:*%20${id}%0A*Item%20:*%20${item}%0A${userInfo}*Note%20:*%20${newNote}`;
         window.location.href = url;
-        let win = window.open(url, "_blank");
-        win.focus();
       }
     </script>
 </body>

@@ -105,7 +105,7 @@
           );
         }
       });
-      
+
       function capital(str) {
         let splitstr = str.toLowerCase().split(" ");
         for (let i = 0; i < splitstr.length; i++) {
@@ -158,6 +158,8 @@
             `;
           });
         }
+        var date = new Date();
+        let id = `${date.getFullYear()}${date.getMonth()}${date.getDate()}${date.getHours()}${date.getMinutes()}`;
         data = JSON.stringify(data);
         $("body").append(
           `
@@ -169,6 +171,7 @@
                   </div>
                   <div class="modal-body">
                       <ul class="list-group">
+                        <li class="list-group-item d-flex justify-content-between"><span>Id Transaksi</span><span>${id}</span></li>
                         ${data == false ? "" : info}
                         <li class="list-group-item d-flex justify-content-between"><span>Item</span><span>${item}</span></li>
                         <li class="list-group-item d-flex justify-content-between fw-bold"><span>Harga</span><span>${harga}</span></li>
@@ -176,7 +179,7 @@
                   </div>
                   <div class="modal-footer" style="border:none">
                     <button type="button" class="btn text-light" data-bs-dismiss="modal" style="background-color: lightblue; box-shadow: lightblue -1px 1px 2px" onclick="delModal(400)">Close</button>
-                    <button type="button" class="btn text-light" style="background-color: pink; box-shadow: pink -1px 1px 2px " onclick='directWa("${name}",${data})'>Konfirmasi</button>
+                    <button type="button" class="btn text-light" style="background-color: pink; box-shadow: pink -1px 1px 2px " onclick='directWa(${id}, "${name}" ,${data}, "${item}")'>Konfirmasi</button>
                   </div>
                 </div>
               </div>
@@ -192,7 +195,7 @@
         }, time);
       }
 
-      function directWa(name, info) {
+      function directWa(id, name, info, item) {
         let userInfo = "";
         $.each(info, (i, data) => {
           data.name = capital(data.name);
@@ -206,10 +209,8 @@
         $.each(note, (i, data) => {
           newNote += `${data}%20`;
         });
-        let url = `https://api.whatsapp.com/send?phone=${phone}&text=*Format%20Order%20${name}*%0A${userInfo}*Note%20:*%20${newNote}`;
+        let url = `https://api.whatsapp.com/send?phone=${phone}&text=*Format%20Order%20${name}*%0A*ID%20:*%20${id}%0A*Item%20:*%20${item}%0A${userInfo}*Note%20:*%20${newNote}`;
         window.location.href = url;
-        let win = window.open(url, "_blank");
-        win.focus();
       }
     </script>
 </body>
